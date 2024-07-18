@@ -6,8 +6,8 @@ async function page() {
   const user = await currentUser();
   const email = user.primaryEmailAddress.emailAddress;
   const Data = await getAbout(email);
-  const Subject = Data.data.studySubject;
-  const About = Data.data.aboutMe;
+  const Subject = Data?.data?.studySubject;
+  const About = Data?.data?.aboutMe;
   console.log(About);
   return (
     <div className="flex items-center justify-center">

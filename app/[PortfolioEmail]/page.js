@@ -16,7 +16,7 @@ async function page({ params }) {
     router.push("/");
   };
   const info = await getUserByEmail(decodedemail); // This function fetches the user data
-  const userInfo = info.data; // Assuming that the data is stored under the 'data' key
+  const userInfo = info?.data; // Assuming that the data is stored under the 'data' key
 
   // Access the user data if it exists and the array is not empty
   if (userInfo && userInfo.length > 0) {
@@ -33,14 +33,14 @@ async function page({ params }) {
   const Socials = await getSocialsByEmail(decodedemail);
 
   const socialLinks = Socials.data;
-  const githubUrl = `https://github.com/${socialLinks.github}`;
-  const LinkedinUrl = `https://linkedin.com/in/${socialLinks.linkedin}`;
-  const twitterUrl = `https://twitter.com/${socialLinks.twitter}`;
+  const githubUrl = `https://github.com/${socialLinks?.github}`;
+  const LinkedinUrl = `https://linkedin.com/in/${socialLinks?.linkedin}`;
+  const twitterUrl = `https://twitter.com/${socialLinks?.twitter}`;
 
   const About = await getAbout(decodedemail);
 
-  const aboutme = About.data.aboutMe;
-  const studySubject = About.data.studySubject;
+  const aboutme = About?.data?.aboutMe;
+  const studySubject = About?.data?.studySubject;
 
   if ((await checkUserExistsByEmail(decodedemail)) === false) {
     return (

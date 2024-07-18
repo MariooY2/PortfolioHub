@@ -1,10 +1,16 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import addUser from "@/backend/user/AddUser";
+import addSocials from "@/backend/Socials/addsocials";
+import addUserInfo from "@/backend/Userinfo/AddAbout";
 import checkUserExistsByEmail from "@/backend/user/CheckUser";
+
 export default async function Dashboard() {
+  
   const { userId } = auth();
   const user = await currentUser();
   const email = user.primaryEmailAddress.emailAddress;
+  //await addSocials("","","",email)
+  //await addUserInfo("","",email)
   const image=user.imageUrl
   const name=`${user.firstName +" "+ user.lastName}`
   

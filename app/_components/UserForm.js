@@ -15,8 +15,10 @@ function UserProfileForm({ email, Subject, About }) {
     // Handle form submission, e.g., send data to your API or database
     if ((await checkAbout(email)) === false) {
       await addUserInfo(studySubject, aboutMe, email);
+      console.log(1);
     } else {
       await updateAbout(studySubject, aboutMe, email);
+      console.log(2);
     }
 
     // Reset form fields

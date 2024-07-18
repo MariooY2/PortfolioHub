@@ -7,12 +7,12 @@ async function page() {
   const user = await currentUser();
   const email = user.primaryEmailAddress.emailAddress;
   const Urls= await getSocialsByEmail(email);
-  const githubUrl = `https://github.com/${Urls.data.github}`;
-  const LinkedinUrl = `https://linkedin.com/in/${Urls.data.linkedin}`;
-  const twitterUrl = `https://twitter.com/${Urls.data.twitter}`;
+  const githubUrl = `https://github.com/${Urls?.data?.github}`;
+  const LinkedinUrl = `https://linkedin.com/in/${Urls?.data?.linkedin}`;
+  const twitterUrl = `https://twitter.com/${Urls?.data?.twitter}`;
   return (
     <div>
-      <SocialForm email={email} githubusername={Urls.data.github} twitterusername={Urls.data.twitter} linkedinusername={Urls.data.linkedin}  />
+      <SocialForm email={email} githubusername={Urls?.data?.github} twitterusername={Urls?.data?.twitter} linkedinusername={Urls?.data?.linkedin}  />
 
       <div className="flex justify-around gap-28 mt-28">
         <a
