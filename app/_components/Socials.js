@@ -5,10 +5,15 @@ import checkSocialsExist from "@/backend/Socials/checkifexists";
 import updateSocials from "@/backend/Socials/updatesocials";
 import { useRouter } from "next/navigation";
 import getSocialsByEmail from "@/backend/Socials/getSocials";
-function SocialForm({ email }) {
-  const [github, setGithub] = useState("");
-  const [twitter, setTwitter] = useState("");
-  const [linkedin, setLinkedin] = useState("");
+function SocialForm({
+  email,
+  githubusername,
+  twitterusername,
+  linkedinusername,
+}) {
+  const [github, setGithub] = useState(githubusername || "");
+  const [twitter, setTwitter] = useState(twitterusername || "");
+  const [linkedin, setLinkedin] = useState(linkedinusername || "");
   const [loading, setLoading] = useState(false); // Add a loading state
 
   const router = useRouter();
@@ -49,6 +54,11 @@ function SocialForm({ email }) {
               value={github}
               onChange={(e) => setGithub(e.target.value)}
             />
+             {githubusername && (
+              <p className="text-sm text-gray-600 mt-2 whitespace-pre-wrap break-words">
+                Previous: {githubusername}
+              </p>
+            )}
           </label>
           <label className="block">
             <span className="text-gray-700 font-semibold">Twitter</span>
@@ -56,10 +66,15 @@ function SocialForm({ email }) {
               required
               type="text"
               className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="Enter your Twitter handle"
+              placeholder="Enter your Twitter Username"
               value={twitter}
               onChange={(e) => setTwitter(e.target.value)}
             />
+            {twitterusername && (
+              <p className="text-sm text-gray-600 mt-2 whitespace-pre-wrap break-words">
+                Previous: {twitterusername}
+              </p>
+            )}
           </label>
           <label className="block">
             <span className="text-gray-700 font-semibold">LinkedIn</span>
@@ -67,10 +82,15 @@ function SocialForm({ email }) {
               required
               type="text"
               className="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="Enter your LinkedIn profile URL"
+              placeholder="Enter your LinkedIn Username"
               value={linkedin}
               onChange={(e) => setLinkedin(e.target.value)}
             />
+            {linkedinusername && (
+              <p className="text-sm text-gray-600 mt-2 whitespace-pre-wrap break-words">
+                Previous: {linkedinusername}
+              </p>
+            )}
           </label>
           <button
             disabled={loading}

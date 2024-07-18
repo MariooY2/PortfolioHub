@@ -12,14 +12,14 @@ async function checkUserExistsByEmail(email) {
             if (error.message.includes("Could not find a single row in")) {
                 return false;
             }
-            console.error('Error checking user:', error);
+            //console.error('Error checking user:', error);
             throw error;
         }
 
         // If data is returned, a user exists
         return true;
     } catch (error) {
-        console.error('Exception when checking for user:', error);
+        //console.error('Exception when checking for user:', error);
         return false; // Optionally handle different types of errors distinctly
     }
 }

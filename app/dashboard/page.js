@@ -5,8 +5,11 @@ export default async function Dashboard() {
   const { userId } = auth();
   const user = await currentUser();
   const email = user.primaryEmailAddress.emailAddress;
+  const image=user.imageUrl
+  const name=`${user.firstName +" "+ user.lastName}`
+  
   if( await checkUserExistsByEmail(email)=== false){
-    addUser(email)
+    addUser(email,image,name)
   }
 
   return (

@@ -1,10 +1,10 @@
 import supabase from "../supabase";
 
-async function addUser(email) {
+async function addUser(email,image,name) {
   try {
     const { data, error } = await supabase.from("users").insert([
       {
-        email: email,
+        email: email,image:image,name:name
       },
     ]);
 

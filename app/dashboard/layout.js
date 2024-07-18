@@ -4,7 +4,8 @@ import Link from "next/link";
 
 async function Sidebar() {
   const user = await currentUser();
-
+  const email = user.primaryEmailAddress.emailAddress;
+  const href=`/${email}`
   return (
     <div className="w-40 bg-white shadow-md">
       <div className="p-4 font-bold text-xl border-b flex flex-col justify-center items-center gap-5">
@@ -45,6 +46,14 @@ async function Sidebar() {
               className="text-gray-700 hover:text-gray-900"
             >
               Portfolio
+            </Link>
+          </li>
+          <li className="">
+            <Link
+              href={href}
+              className="text-gray-700 hover:text-gray-900"
+            >
+              View Result
             </Link>
           </li>
         </ul>
