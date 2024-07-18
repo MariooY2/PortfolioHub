@@ -5,7 +5,7 @@ PortfolioHub is designed to empower creative professionals to showcase their wor
  [Live Demo](https://portfolio-hub-livid.vercel.app/)
 <br>
 ## Features
-###🌟 User Authentication & Professional Profiles
+### 🌟 User Authentication & Professional Profiles
 - Secure Authentication: Utilize NextAuth for robust and flexible authentication options, including social login capabilities.
 - Professional Profiles: Customize profiles with bio, profile pictures, contact information, and links to social media. Integrate with LinkedIn to pull in professional details.
 ### 🎨 Dynamic Portfolio Management
